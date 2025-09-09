@@ -1,0 +1,29 @@
+{% extends "students/base.html" %}
+{% block title %}Listado de Alumnos{% endblock %}
+{% block content %}
+<h1>Listado de Alumnos</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Fecha de Inscripción</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in students %}
+        <tr>
+            <td>{{ s.first_name }}</td>
+            <td>{{ s.last_name }}</td>
+            <td>{{ s.email }}</td>
+            <td>{{ s.enrollment_date }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No hay alumnos registrados.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
